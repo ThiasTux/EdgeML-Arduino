@@ -119,10 +119,10 @@ void SensorProvider::update_sensor(Sensor * sensor, bool force) {
 void SensorProvider::send_sensor_data(int ID) {
     // Get data from SensorManager
     // Send data via BLE
-    if (debugging) {
-        print("Sending data ID:  ");
-        println(ID);
-    }
+    // if (debugging) {
+    //     print("Sending data ID:  ");
+    //     println(ID);
+    // }
 
     unsigned int timestamp = millis();
 
@@ -144,7 +144,7 @@ void SensorProvider::send_sensor_data(int ID) {
     uint8_t * data_pointer = &_data_buffer[_meta_data_size];
     _sensorManager->get_data(ID, (byte*)data_pointer);
 
-    bleHandler_G.send(_data_buffer, total_size);
+    // bleHandler_G.send(_data_buffer, total_size);
 
     if (_data_callback) {
         _data_callback(ID, timestamp, data_pointer, data_length);
