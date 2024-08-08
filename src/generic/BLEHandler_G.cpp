@@ -118,7 +118,7 @@ void BLEHandler_G::update() {
 }
 
 void BLEHandler_G::send(byte *data, int size) {
-    println("Sending data");
+    // println("Sending data");
     if (!sensorDataC_G->subscribed()) return;
     sensorDataC_G->writeValue(data, size);
 }
